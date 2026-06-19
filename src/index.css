@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import "@clock-ui/react/base.css";
+@import "@fontsource-variable/geist";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply min-h-dvh antialiased text-neutral-900;
+    font-family: var(--font-sans);
+    background: #f4f1eb;
+  }
+}
+
+.clock-shell {
+  --cui-bg-color: #ece8e0;
+  --cui-face-color: #faf8f4;
+  --cui-frame-color: #ddd8ce;
+  --cui-primary-color: #141414;
+  --cui-secondary-color: #ece8e0;
+  --cui-accent-color: #e0543a;
+  --cui-hand-color: #141414;
+  --cui-hour-hand-color: #141414;
+  --cui-minute-hand-color: #141414;
+  --cui-second-hand-color: #e0543a;
+  --cui-pin-color: #141414;
+  --cui-tick-color: #141414;
+  --cui-number-color: #141414;
+  width: min(calc(100vw - 12rem), 440px);
+}
+
+@media (min-width: 640px) {
+  .clock-shell {
+    width: min(calc(100vw - 18rem), 440px);
+  }
+}
+
+.clock-shell .clock-ui {
+  width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0a0a0a;
+    color: #f5f5f5;
+  }
+
+  .clock-shell {
+    --cui-bg-color: #1a1a1a;
+    --cui-face-color: #111111;
+    --cui-frame-color: #2a2a2a;
+    --cui-primary-color: #f5f5f5;
+    --cui-secondary-color: #2a2a2a;
+    --cui-accent-color: #ff6b4a;
+    --cui-hand-color: #f5f5f5;
+    --cui-hour-hand-color: #f5f5f5;
+    --cui-minute-hand-color: #f5f5f5;
+    --cui-second-hand-color: #ff6b4a;
+    --cui-pin-color: #f5f5f5;
+    --cui-tick-color: #f5f5f5;
+    --cui-number-color: #f5f5f5;
+  }
+}
+
+.bg-scene {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(224, 84, 58, 0.12), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(20, 20, 20, 0.06), transparent 50%),
+    #f4f1eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-scene {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 107, 74, 0.08), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(255, 255, 255, 0.03), transparent 50%),
+      #0a0a0a;
+  }
+}

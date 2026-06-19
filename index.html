@@ -1,110 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>Clock</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="app">
-    <nav class="segmented-control" role="tablist" aria-label="Clock mode">
-      <div class="segment-indicator" id="segment-indicator"></div>
-      <button class="segment active" data-mode="clock" role="tab" aria-selected="true">Clock</button>
-      <button class="segment" data-mode="timer" role="tab" aria-selected="false">Timer</button>
-    </nav>
-
-    <section class="clock-section">
-      <div class="clock-container">
-        <svg class="progress-ring" viewBox="0 0 420 420" aria-hidden="true">
-          <circle class="progress-track" cx="210" cy="210" r="204" />
-          <circle class="progress-fill" id="progress-fill" cx="210" cy="210" r="204" />
-        </svg>
-
-        <div class="clock-face-wrap">
-          <svg class="clock-face" viewBox="0 0 400 400" aria-label="Analog clock">
-            <defs>
-              <filter id="handShadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12" />
-              </filter>
-            </defs>
-
-            <circle class="face-bg" cx="200" cy="200" r="188" />
-            <g class="hour-markers" id="hour-markers"></g>
-            <g class="minute-ticks" id="minute-ticks"></g>
-            <g class="numerals" id="numerals"></g>
-
-            <g filter="url(#handShadow)">
-              <g id="hour-hand" class="hand-group">
-                <rect class="hour-hand" x="197.5" y="118" width="5" height="82" rx="2.5" />
-              </g>
-              <g id="minute-hand" class="hand-group">
-                <rect class="minute-hand" x="198.5" y="92" width="3" height="108" rx="1.5" />
-              </g>
-              <g id="second-hand" class="hand-group">
-                <line class="second-hand" x1="200" y1="228" x2="200" y2="76" />
-                <circle class="second-cap" cx="200" cy="200" r="3.5" />
-              </g>
-            </g>
-            <circle class="center-cap" cx="200" cy="200" r="4.5" />
-          </svg>
-        </div>
-      </div>
-
-      <p id="digital-time" class="digital-time">00:00:00</p>
-      <p id="mode-label" class="mode-label">Local Time</p>
-    </section>
-
-    <section class="timer-controls hidden" id="timer-panel">
-      <div class="time-picker">
-        <div class="picker-column">
-          <button type="button" class="picker-btn" data-target="timer-hours" data-delta="1" aria-label="Increase hours">▲</button>
-          <input type="number" id="timer-hours" class="picker-value" min="0" max="23" value="0" aria-label="Hours" />
-          <span class="picker-unit">hr</span>
-          <button type="button" class="picker-btn" data-target="timer-hours" data-delta="-1" aria-label="Decrease hours">▼</button>
-        </div>
-        <span class="picker-colon">:</span>
-        <div class="picker-column">
-          <button type="button" class="picker-btn" data-target="timer-minutes" data-delta="1" aria-label="Increase minutes">▲</button>
-          <input type="number" id="timer-minutes" class="picker-value" min="0" max="59" value="5" aria-label="Minutes" />
-          <span class="picker-unit">min</span>
-          <button type="button" class="picker-btn" data-target="timer-minutes" data-delta="-1" aria-label="Decrease minutes">▼</button>
-        </div>
-        <span class="picker-colon">:</span>
-        <div class="picker-column">
-          <button type="button" class="picker-btn" data-target="timer-seconds" data-delta="1" aria-label="Increase seconds">▲</button>
-          <input type="number" id="timer-seconds" class="picker-value" min="0" max="59" value="0" aria-label="Seconds" />
-          <span class="picker-unit">sec</span>
-          <button type="button" class="picker-btn" data-target="timer-seconds" data-delta="-1" aria-label="Decrease seconds">▼</button>
-        </div>
-      </div>
-
-      <div class="timer-actions">
-        <button type="button" id="timer-start" class="start-btn" aria-label="Start timer">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="currentColor" aria-hidden="true">
-            <path d="M8 5.5v17l14-8.5L8 5.5z" />
-          </svg>
-        </button>
-        <div class="secondary-actions">
-          <button type="button" id="timer-pause" class="text-btn" disabled>Pause</button>
-          <button type="button" id="timer-reset" class="text-btn">Cancel</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div id="timer-complete" class="sheet hidden" role="alert" aria-live="assertive">
-    <div class="sheet-backdrop"></div>
-    <div class="sheet-card">
-      <div class="sheet-handle"></div>
-      <h2>Timer Done</h2>
-      <p>Your timer has finished.</p>
-      <button type="button" id="dismiss-complete" class="sheet-btn">OK</button>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
